@@ -8,4 +8,6 @@ class Image(models.Model):
     location = models.TextField(max_length=30,null=False,blank=False, default='')
     image=models.ImageField(upload_to='images/')
     pub_date = models.DateTimeField(auto_now=True)
-    
+
+
+   
