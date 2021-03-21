@@ -1,13 +1,50 @@
 {%extends 'base.html'%}
 {%block content%}
-<h2>Test</h2>
-{%for image in images%}
-
-<p>{{image.caption}}</p>
-<p>{{image.title}}</p>
-<p>{{image.description}}</p>
-<p>{{image.location}}</p>
-<p>{{image.pub_date}}</p>
-
-{%endfor%}
+<h2 class="text-center">Welcome to my Gallery</h2>
+<hr>
+<div class="container">
+    <div class="row">
+        {%for image in images%}
+        <div class="col-md-4">
+            <div class="" style="width: 18rem;">
+                <img class="card-img-top" src="{{image.image.url}}"" alt="Card image cap">
+                <div class="card-body">
+                 <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Click to View
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{image.title}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
+          
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <p>{{image.caption}}</p>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+                </div>
+              </div>
+        </div>
+        {%endfor%}
+    </div>
+    
+</div>
 {%endblock content%}
