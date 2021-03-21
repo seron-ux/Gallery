@@ -7,14 +7,14 @@ def home(request):
     
     return render(request, 'home.html',{"images":images})
 
-# def view_image(request,image_id):
-#         '''    Method to get image by id    '''    
-#         try:        
-#             image = Image.objects.get(id =  image_id)    
+def view_image(request,image_id):
+        '''    Method to get image by id    '''    
+        try:        
+            image = Image.objects.get(id =  image_id)    
             
-#         except DoesNotExist:        
-#             raise Http404()    
-#         return render(request, "post.html", {"image":image})
+        except DoesNotExist:        
+            raise Http404()    
+        return render(request, "post.html", {"image":image})
 
 
 def search_results(request):
